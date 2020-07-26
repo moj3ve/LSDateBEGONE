@@ -2,19 +2,11 @@
 @property (nonatomic, assign, readwrite, getter=isHidden) BOOL hidden;
 @end
 
-%group HideDate
-
 %hook SBFLockScreenDateSubtitleDateView
 
--(void)layoutSubviews {
+-(void)viewDidLoad {
 	%orig;
 	self.hidden = TRUE;
 }
 
 %end
-
-%end
-
-%ctor {
-	%init(HideDate);
-}
